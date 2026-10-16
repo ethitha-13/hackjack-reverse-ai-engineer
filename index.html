@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ReverseEngineer AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <a href="#home" class="logo">
+            <span class="logo-icon">R</span>
+            ReverseEngineer <span class="accent">AI</span>
+        </a>
+
+        <nav>
+            <a href="#features">Features</a>
+            <a href="#investigate">Investigate</a>
+            <a href="#history">Case History</a>
+        </nav>
+
+        <a href="#investigate" class="nav-button">Start Analysis ↗</a>
+    </header>
+
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+
+                <span class="section-label">
+                    OUTCOME-TO-PROCESS INTELLIGENCE
+                </span>
+
+                <h1>
+                    Don't Just See the Result.
+                    <span class="gradient-text">
+                        Uncover the Process.
+                    </span>
+                </h1>
+
+                <p>
+                    Upload a finished setup, describe its outcome, and
+                    investigate the possible process behind it.
+                    Separate visible evidence from assumptions and
+                    discover what information is still missing.
+                </p>
+
+                <a href="#investigate" class="primary-button">
+                    Start Investigation →
+                </a>
+
+            </div>
+
+            <div class="hero-card">
+                <span class="hero-card-icon">⌘</span>
+
+                <h2>Reverse Engineering, Reimagined.</h2>
+
+                <p>
+                    From the final result to possible explanations,
+                    one piece of evidence at a time.
+                </p>
+
+                <div class="flow-step">01 &nbsp; Observe the result</div>
+                <div class="flow-step">02 &nbsp; Identify evidence</div>
+                <div class="flow-step">03 &nbsp; Explore possibilities</div>
+                <div class="flow-step">04 &nbsp; Verify with new evidence</div>
+            </div>
+
+        </section>
+
+
+        <!-- Features -->
+        <section class="features-section" id="features">
+
+            <div class="section-heading">
+                <span class="section-label">INVESTIGATION TOOLKIT</span>
+
+                <h2>
+                    Every Clue Matters.
+                    <span class="gradient-text">Every Unknown Counts.</span>
+                </h2>
+
+                <p>
+                    Explore a structured way to understand physical setups
+                    and the processes that may have produced them.
+                </p>
+            </div>
+
+            <div class="features-grid">
+
+                <article class="feature-card">
+                    <div class="feature-icon">↶</div>
+                    <h3>Backward Reconstruction</h3>
+                    <p>
+                        Work backwards from a final outcome to explore
+                        possible steps that could have produced it.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">◉</div>
+                    <h3>Evidence vs. Inference</h3>
+                    <p>
+                        Separate directly visible details from assumptions
+                        that still need verification.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">?</div>
+                    <h3>Missing Evidence</h3>
+                    <p>
+                        Identify hidden components, missing measurements,
+                        and information unavailable from an image alone.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">⇄</div>
+                    <h3>Component Alternatives</h3>
+                    <p>
+                        Explore possible component replacements and
+                        compare their expected trade-offs.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">◈</div>
+                    <h3>Feasibility Assessment</h3>
+                    <p>
+                        Examine constraints, potential bottlenecks,
+                        and questions that need further testing.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">⟳</div>
+                    <h3>Investigation Memory</h3>
+                    <p>
+                        Save case summaries and revisit earlier
+                        explanations as new evidence becomes available.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- Investigation Form -->
+        <section class="workspace-section" id="investigate">
+
+            <div class="section-heading">
+                <span class="section-label">YOUR WORKSPACE</span>
+
+                <h2>
+                    Start an
+                    <span class="gradient-text">Investigation.</span>
+                </h2>
+
+                <p>
+                    Upload an image and explain what you want to understand.
+                </p>
+            </div>
+
+            <div class="workspace">
+
+                <form id="investigationForm">
+
+                    <h3>New Investigation</h3>
+
+                    <div class="form-group">
+                        <label for="projectName">
+                            Project / Case Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="projectName"
+                            placeholder="e.g. Circuit Investigation"
+                            maxlength="100"
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="setupImage">
+                            Upload Setup Image *
+                        </label>
+
+                        <div class="upload-area" id="uploadArea">
+
+                            <input
+                                type="file"
+                                id="setupImage"
+                                accept="image/*"
+                                hidden
+                            >
+
+                            <div id="uploadPlaceholder">
+                                <div class="upload-icon">↑</div>
+
+                                <h4>Drop your image here</h4>
+
+                                <p>Or choose an image from your device.</p>
+
+                                <button
+                                    type="button"
+                                    id="browseButton"
+                                    class="secondary-button"
+                                >
+                                    Choose Image
+                                </button>
+
+                                <p>Image files only · Maximum 10 MB</p>
+                            </div>
+
+                            <div id="imagePreviewContainer" hidden>
+
+                                <img
+                                    id="imagePreview"
+                                    src=""
+                                    alt="Uploaded setup preview"
+                                >
+
+                                <p id="imageFileName"></p>
+
+                                <button
+                                    type="button"
+                                    id="removeImage"
+                                    class="remove-button"
+                                >
+                                    Remove Image
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="targetOutcome">
+                            Describe the Target Outcome *
+                        </label>
+
+                        <textarea
+                            id="targetOutcome"
+                            rows="5"
+                            placeholder="What does this setup do? What are you trying to discover?"
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="analysisMode">
+                            Investigation Mode
+                        </label>
+
+                        <select id="analysisMode">
+
+                            <option value="education">
+                                Lab Assistant / Education
+                            </option>
+
+                            <option value="engineering">
+                                Hardware & Engineering
+                            </option>
+
+                            <option value="troubleshooting">
+                                Troubleshooting & Maintenance
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        id="analyseButton"
+                        class="primary-button full-width"
+                    >
+                        Analyse My Setup →
+                    </button>
+
+                    <p class="privacy-note">
+                        Current version: frontend demo.
+                        Actual AI analysis requires a connected AI backend.
+                    </p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- Analysis Results -->
+        <section class="results-section" id="results" hidden>
+
+            <div class="section-heading">
+                <span class="section-label">INVESTIGATION REPORT</span>
+
+                <h2>
+                    Analysis <span class="gradient-text">Results.</span>
+                </h2>
+
+                <p id="resultSummary"></p>
+            </div>
+
+
+            <div class="results-grid">
+
+                <article class="result-card">
+                    <h3>↶ Possible Process</h3>
+                    <div id="processResult"></div>
+                </article>
+
+                <article class="result-card">
+                    <h3>✓ Visible Evidence</h3>
+                    <div id="evidenceResult"></div>
+                </article>
+
+                <article class="result-card">
+                    <h3>◉ AI Inferences</h3>
+                    <div id="inferenceResult"></div>
+                </article>
+
+                <article class="result-card">
+                    <h3>? Missing Evidence</h3>
+                    <div id="unknownResult"></div>
+                </article>
+
+                <article class="result-card">
+                    <h3>◈ Feasibility Assessment</h3>
+                    <p id="feasibilityResult"></p>
+                </article>
+
+                <article class="result-card">
+                    <h3>⇄ Alternative Recommendations</h3>
+                    <div id="alternativesResult"></div>
+                </article>
+
+            </div>
+
+
+            <div class="results-actions">
+
+                <button
+                    type="button"
+                    id="saveCaseButton"
+                    class="primary-button"
+                >
+                    Save Investigation
+                </button>
+
+                <button
+                    type="button"
+                    id="newInvestigationButton"
+                    class="secondary-button"
+                >
+                    + New Investigation
+                </button>
+
+            </div>
+
+            <p class="disclaimer">
+                Demo results must not be treated as verified engineering advice.
+            </p>
+
+        </section>
+
+
+        <!-- Case History -->
+        <section class="history-section" id="history">
+
+            <div class="section-heading">
+                <span class="section-label">PROGRESSIVE EVIDENCE TRACKING</span>
+
+                <h2>
+                    Investigation <span class="gradient-text">History.</span>
+                </h2>
+
+                <p>
+                    Revisit saved investigation summaries from this browser.
+                </p>
+            </div>
+
+            <div id="historyContainer" class="history-container">
+
+                <div class="empty-history">
+                    <h3>No saved investigations yet</h3>
+
+                    <p>
+                        Save your first investigation to see it here.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- How It Works -->
+        <section class="how-section">
+
+            <div class="section-heading">
+                <span class="section-label">THE WORKFLOW</span>
+
+                <h2>
+                    From Observation to
+                    <span class="gradient-text">Verification.</span>
+                </h2>
+            </div>
+
+            <div class="how-grid">
+
+                <article class="how-step">
+                    <span>01</span>
+                    <h3>Observe</h3>
+                    <p>Upload the available evidence.</p>
+                </article>
+
+                <article class="how-step">
+                    <span>02</span>
+                    <h3>Investigate</h3>
+                    <p>Explore possible explanations.</p>
+                </article>
+
+                <article class="how-step">
+                    <span>03</span>
+                    <h3>Question</h3>
+                    <p>Identify assumptions and unknowns.</p>
+                </article>
+
+                <article class="how-step">
+                    <span>04</span>
+                    <h3>Verify</h3>
+                    <p>Test explanations against new evidence.</p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <a href="#home" class="logo">
+            <span class="logo-icon">R</span>
+            ReverseEngineer <span class="accent">AI</span>
+        </a>
+
+        <p>
+            Reconstruct possibilities. Verify evidence.
+            Understand the unknown.
+        </p>
+
+        <div class="footer-bottom">
+            © 2026 ReverseEngineer AI · Hackathon Project
+        </div>
+
+    </footer>
+
+
+    <!-- Connect JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
